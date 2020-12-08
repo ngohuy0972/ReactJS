@@ -18,7 +18,8 @@
 ssh -p 4567 ubuntu@ip_of_real_machine
 
 # docker for Windows
-docker build -t backend .
+docker build -t backend . //-t la tag.backend là ten ban build mình tự đặt.
+docker run -p 5001:8080 my-web-app:v0.0.1   //-p là port. 5001:8080 lag gán port 5001 trên máy cho port 8080 trên docker. 
 docker run -d --name backend --env db_ip-IP_OF_DOCKER -p 8080:8080 backend
 docker stop backend
 docker rm backend

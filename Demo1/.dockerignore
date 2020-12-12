@@ -1,0 +1,3 @@
+# Vì folder node_modules khá nặng nên ta sẽ tạo ra file ".dockerignore" này để ko đẩy nó lên server .
+node_modules
+npm-debug.log

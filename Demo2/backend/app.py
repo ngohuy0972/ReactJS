@@ -5,7 +5,7 @@ import DataObjects as do
 
 app = Flask(__name__)
 
-db_ip = os.getenv('db_ip') #'10.0.2.15' - #'172.17.0.1'
+db_ip = os.getenv('db_ip') #'10.0.2.15'
 ConnectionData = {}
 ConnectionData['user'] = 'postgres'
 ConnectionData['password'] = 'postgres'
@@ -15,17 +15,35 @@ ConnectionData['database'] = 'northwind'
 
 @app.route('/')
 def hello():    
-    c1 = bo.Customer(1, 'DAU xanh', 'Peter', '566 Nui Thanh', 'Danang', '50000', 'Vietnam')
-    return c1.CustomerName
+    return 'this is backend'
 
-@app.route('/test_insert')
-def test_insert():
+# Customer Start.
+@app.route('/get_all_customer', methods = ['GET'])
+def get_all_customer():
+    c2 = do.Customer(ConnectionData)
+    s1 = c2.get_all_customer(1)
+    return s1
+
+@app.route('/insert_customer')
+def insert_customer():
     #ConnectionString = 'database=northwind user=postgres password=postgres host=10.0.2.15 port=5432'
     c2 = do.Customer(ConnectionData)
     c1 = bo.Customer(1, 'DAU xanh', 'Peter', '566 Nui Thanh', 'Danang', '50000', 'Vietnam')
-    s1 = c2.insert(c1)
+    s1 = c2.insert_customer(c1)
     return s1
     #return 'this is test insert'
+
+@app.route('/delete_customer')
+def delete_customer():
+    c2 = do.Customer(ConnectionData)
+    s1 = c2.delete_customer(1)
+    return s1
+
+@app.route('/update_customer')
+def update_customer():
+    c2 = do.Customer(ConnectionData)
+    s1 = c2.update_customer(1)
+    return s1
 
 @app.route('/user/all')
 def get_all_user():

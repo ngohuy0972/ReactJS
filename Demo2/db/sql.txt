@@ -1,4 +1,4 @@
-CREATE TABLE TblCustomers (
+CREATE TABLE Customers (
     CustomerID SERIAL PRIMARY KEY,
     CustomerName varchar(255),
     ContactName varchar(255),
@@ -63,4 +63,3 @@ CREATE TABLE Suppliers (
     Country varchar(255),
     Phone varchar(255)
 );
-            

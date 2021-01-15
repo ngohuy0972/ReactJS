@@ -63,3 +63,4 @@ CREATE TABLE Suppliers (
     Country varchar(255),
     Phone varchar(255)
 );
+            
